@@ -487,8 +487,6 @@ body::before {
     max-width: 1200px;
     margin: 0 auto;
     -webkit-overflow-scrolling: touch;
-    position: relative;
-    isolation: isolate;
 }
 
 /* Card Styles - Ancient Scroll Cards */
@@ -498,9 +496,6 @@ body::before {
     perspective: 1200px;
     cursor: pointer;
     animation: cardAppear 0.6s ease-out backwards;
-    position: relative;
-    z-index: 1;
-    transition: z-index 0s;
 }
 
 .card:nth-child(1) { animation-delay: 0.1s; }
@@ -518,11 +513,6 @@ body::before {
     transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
     transform-style: preserve-3d;
     transform-origin: center center;
-}
-
-.card.flipped {
-    z-index: 10;
-    transition: z-index 0s 0.45s;
 }
 
 .card.flipped .card-inner {
@@ -835,11 +825,6 @@ body::before {
 
     .card {
         min-width: 0;
-        isolation: isolate;
-    }
-
-    .card.flipped {
-        z-index: 10;
     }
 
     .card-front,
@@ -936,14 +921,6 @@ body::before {
         padding: 0.75rem 0.25rem;
     }
 
-    .card {
-        isolation: isolate;
-    }
-
-    .card.flipped {
-        z-index: 10;
-    }
-
     .card-front,
     .card-back {
         padding: 1rem 0.75rem;
@@ -969,11 +946,6 @@ body::before {
 
     .card {
         max-width: 100%;
-        isolation: isolate;
-    }
-
-    .card.flipped {
-        z-index: 10;
     }
 }
 
@@ -1034,14 +1006,6 @@ body::before {
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
         scroll-behavior: smooth;
-    }
-
-    .card {
-        isolation: isolate;
-    }
-
-    .card.flipped {
-        z-index: 10;
     }
 
     .player-list-container {
