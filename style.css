@@ -70,6 +70,8 @@ body::before {
     padding: 2rem;
     position: relative;
     z-index: 1;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Phone-specific base improvements */
@@ -187,6 +189,33 @@ body::before {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
     margin-bottom: 3rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Large screens optimization */
+@media (min-width: 1400px) {
+    .app-container {
+        padding: 3rem;
+    }
+
+    .main-content {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2.5rem;
+    }
+
+    .cards-container {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 2.5rem;
+    }
+}
+
+/* Medium-large screens */
+@media (min-width: 1200px) and (max-width: 1399px) {
+    .cards-container {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 2rem;
+    }
 }
 
 /* Scroll Panels - Ancient Parchment Style */
@@ -499,6 +528,8 @@ body::before {
     max-width: 1200px;
     margin: 0 auto;
     -webkit-overflow-scrolling: touch;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Card Styles - Ancient Scroll Cards */
@@ -693,11 +724,42 @@ body::before {
 }
 
 /* Responsive Design */
-/* Tablet and below */
-@media (max-width: 1024px) {
+/* Large Tablets and Small Desktops */
+@media (max-width: 1200px) and (min-width: 1025px) {
+    .app-container {
+        padding: 1.5rem;
+    }
+
+    .main-content {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.75rem;
+    }
+
     .cards-container {
         grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 1.75rem;
+    }
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .app-container {
+        padding: 1.25rem;
+    }
+
+    .header-content {
+        padding: 2.5rem 2rem;
+    }
+
+    .main-content {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 1.5rem;
+    }
+
+    .cards-container {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 1.5rem;
+        padding: 1.5rem;
     }
 
     .card {
@@ -707,6 +769,27 @@ body::before {
 
     .card-inner {
         transition: transform 0.35s ease;
+    }
+
+    .scroll-panel {
+        padding: 2rem 1.75rem;
+    }
+}
+
+/* Small Tablets and Large Phones */
+@media (max-width: 900px) and (min-width: 769px) {
+    .app-container {
+        padding: 1rem;
+    }
+
+    .main-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .cards-container {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 1.25rem;
     }
 }
 
@@ -1125,31 +1208,44 @@ body::before {
 
 /* Landscape Mobile Optimization */
 @media (max-width: 768px) and (orientation: landscape) {
+    .app-container {
+        padding: 0.5rem;
+    }
+
+    .header {
+        margin-bottom: 1rem;
+    }
+
     .header-content {
-        padding: 1.5rem 1.25rem;
+        padding: 1.25rem 1rem;
     }
 
     .title {
-        font-size: 1.75rem;
+        font-size: clamp(1.25rem, 4vw, 1.75rem);
     }
 
     .subtitle {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
     }
 
     .main-content {
         grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+    }
+
+    .scroll-panel {
+        padding: 1.25rem 1rem;
     }
 
     .cards-container {
         grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-        max-height: 60vh;
+        max-height: 55vh;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
         scroll-behavior: smooth;
-        gap: 1rem;
-        padding: 1rem 0.5rem;
+        gap: 0.75rem;
+        padding: 0.75rem 0.5rem;
     }
 
     .card {
@@ -1161,7 +1257,13 @@ body::before {
         transition: transform 0.3s ease;
     }
 
+    .card-front,
+    .card-back {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.8rem;
+    }
+
     .player-list-container {
-        max-height: 150px;
+        max-height: 120px;
     }
 }
