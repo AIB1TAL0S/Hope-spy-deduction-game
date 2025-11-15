@@ -537,13 +537,26 @@ body::before {
     -webkit-backface-visibility: hidden;
 }
 
+.card-front {
+    visibility: visible;
+}
+
 .card-back {
     transform: rotateY(180deg);
+    visibility: hidden;
 }
 
 .card.flipped .card-inner {
     transform: rotateY(180deg);
     transform-origin: center center;
+}
+
+.card.flipped .card-front {
+    visibility: hidden;
+}
+
+.card.flipped .card-back {
+    visibility: visible;
 }
 
 /* Card Front - Illuminated Manuscript Style */
@@ -588,7 +601,9 @@ body::before {
     z-index: 1;
 }
 
- Styling */
+
+
+
 .player-list-container::-webkit-scrollbar {
     width: 10px;
 }
