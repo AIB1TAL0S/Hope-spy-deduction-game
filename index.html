@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Bible Concept Bluff - Card Flip</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-container">
+    <header class="header">
+        <div class="header-content">
+            <div class="header-ornament header-ornament-left">❦</div>
+            <div class="header-ornament header-ornament-right">❦</div>
+            <h1 class="title">
+                <span class="title-icon">✝</span>
+                <span class="title-text">Bible Concept Bluff</span>
+                <span class="title-icon">✝</span>
+            </h1>
+            <div class="title-underline"></div>
+            <p class="subtitle">Test your knowledge of biblical stories</p>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="players-section card-panel scroll-panel">
+            <div class="scroll-top"></div>
+            <h2 class="section-title">
+                <span class="section-ornament">⚜</span>
+                Players
+                <span class="section-ornament">⚜</span>
+            </h2>
+            <div class="input-group">
+                <input type="text" id="playerName" placeholder="Enter player name" class="modern-input">
+                <button onclick="addPlayer()" class="btn btn-primary">
+                    <span>Add Player</span>
+                </button>
+            </div>
+            <div class="player-list-container">
+                <ul id="playerList" class="player-list"></ul>
+            </div>
+        </section>
+
+        <section class="controls-section card-panel scroll-panel">
+            <div class="scroll-top"></div>
+            <h2 class="section-title">
+                <span class="section-ornament">⚜</span>
+                Game Settings
+                <span class="section-ornament">⚜</span>
+            </h2>
+            <div class="category-selection">
+                <label for="category" class="label">Difficulty Level</label>
+                <select id="category" class="modern-select">
+                    <option value="easy">🟢 Easy</option>
+                    <option value="medium">🟡 Medium</option>
+                    <option value="hard">🔴 Hard</option>
+                </select>
+            </div>
+            <button onclick="startRound()" class="btn btn-start">
+                <span>Start Round</span>
+            </button>
+        </section>
+
+        <section class="cards-section">
+            <div class="cards-container" id="cardsContainer"></div>
+        </section>
+    </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
