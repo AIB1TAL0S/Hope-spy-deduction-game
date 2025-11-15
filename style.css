@@ -498,6 +498,8 @@ body::before {
     position: relative;
     perspective: 1000px;
     transform-origin: center center;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .card:nth-child(1) { animation-delay: 0.1s; }
@@ -685,6 +687,15 @@ body::before {
         grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
         gap: 1.5rem;
     }
+
+    .card {
+        perspective: 900px;
+        touch-action: manipulation;
+    }
+
+    .card-inner {
+        transition: transform 0.35s ease;
+    }
 }
 
 /* Mobile Landscape and below */
@@ -808,12 +819,20 @@ body::before {
 
     .card {
         min-width: 0;
+        perspective: 800px;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .card-inner {
+        transition: transform 0.3s ease;
     }
 
     .card-front,
     .card-back {
         padding: 1.25rem 1rem;
         font-size: 0.9rem;
+        min-height: 44px;
     }
 
     .card-front {
@@ -904,10 +923,19 @@ body::before {
         padding: 0.75rem 0.25rem;
     }
 
+    .card {
+        perspective: 600px;
+    }
+
+    .card-inner {
+        transition: transform 0.3s ease;
+    }
+
     .card-front,
     .card-back {
         padding: 1rem 0.75rem;
         font-size: 0.85rem;
+        min-height: 44px;
     }
 
     .card-front {
@@ -925,10 +953,26 @@ body::before {
     .cards-container {
         grid-template-columns: 1fr 1fr;
         gap: 0.75rem;
+        padding: 0.5rem 0.25rem;
     }
 
     .card {
         max-width: 100%;
+        perspective: 500px;
+    }
+
+    .card-inner {
+        transition: transform 0.25s ease;
+    }
+
+    .card-front,
+    .card-back {
+        padding: 0.875rem 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .card-front {
+        font-size: 0.95rem;
     }
 }
 
@@ -941,6 +985,21 @@ body::before {
 
     .card {
         min-height: 200px;
+        perspective: 700px;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .card-inner {
+        transition: transform 0.3s ease;
+        will-change: transform;
+    }
+
+    .card-front,
+    .card-back {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        user-select: none;
     }
 
     .modern-input,
@@ -985,6 +1044,17 @@ body::before {
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
         scroll-behavior: smooth;
+        gap: 1rem;
+        padding: 1rem 0.5rem;
+    }
+
+    .card {
+        perspective: 700px;
+        touch-action: manipulation;
+    }
+
+    .card-inner {
+        transition: transform 0.3s ease;
     }
 
     .player-list-container {
