@@ -72,6 +72,18 @@ body::before {
     z-index: 1;
 }
 
+/* Phone-specific base improvements */
+@media (max-width: 480px) {
+    html {
+        -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+}
+
 /* Header */
 .header {
     text-align: center;
@@ -813,7 +825,7 @@ body::before {
 
     .cards-container {
         grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-        gap: 1.25rem;
+        gap: 1rem;
         padding: 1rem 0.5rem;
     }
 
@@ -830,55 +842,77 @@ body::before {
 
     .card-front,
     .card-back {
-        padding: 1.25rem 1rem;
-        font-size: 0.9rem;
+        padding: 1rem 0.875rem;
+        font-size: 0.85rem;
         min-height: 44px;
     }
 
     .card-front {
-        font-size: 1.1rem;
+        font-size: 1rem;
+    }
+
+    .card-back {
+        font-size: 0.8rem;
+        line-height: 1.5;
     }
 }
 
-/* Small Mobile Devices */
+/* Small Mobile Devices (Phones) */
 @media (max-width: 480px) {
     .app-container {
         padding: 0.5rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .header {
+        margin-bottom: 1.5rem;
     }
 
     .header-content {
-        padding: 1.5rem 1rem;
+        padding: 1.25rem 0.75rem;
+        border-radius: 6px;
     }
 
     .title {
-        font-size: clamp(1.25rem, 7vw, 2rem);
+        font-size: clamp(1.1rem, 8vw, 1.75rem);
         gap: 0.25rem;
+        line-height: 1.2;
     }
 
     .title-icon {
-        font-size: 1.25rem;
+        font-size: 1rem;
     }
 
     .subtitle {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        margin-top: 0.25rem;
+    }
+
+    .title-underline {
+        width: 70%;
+        margin: 0.25rem auto 0.5rem;
     }
 
     .main-content {
         gap: 1rem;
+        margin-bottom: 1.5rem;
     }
 
     .scroll-panel {
-        padding: 1.5rem 1.25rem;
+        padding: 1.25rem 1rem;
+        border-radius: 6px;
     }
 
     .section-title {
-        font-size: 1.35rem;
+        font-size: 1.2rem;
         margin-bottom: 1rem;
+        line-height: 1.3;
     }
 
     .section-ornament {
-        font-size: 0.9rem;
-        margin: 0 0.2rem;
+        font-size: 0.85rem;
+        margin: 0 0.15rem;
     }
 
     .input-group {
@@ -887,40 +921,62 @@ body::before {
     }
 
     .modern-input {
-        padding: 0.75rem 0.875rem;
-        font-size: 0.95rem;
+        padding: 0.875rem 1rem;
+        font-size: 16px; /* Prevents zoom on iOS */
+        border-radius: 6px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .btn {
-        padding: 0.75rem 1.25rem;
+        padding: 0.875rem 1.25rem;
         font-size: 0.9rem;
+        min-height: 44px;
+        border-radius: 6px;
     }
 
     .btn-start {
-        padding: 0.875rem 1.25rem;
+        padding: 1rem 1.25rem;
         font-size: 1rem;
+        margin-top: 1rem;
+        min-height: 48px;
     }
 
     .modern-select {
-        padding: 0.75rem 0.875rem;
-        font-size: 0.95rem;
-        padding-right: 2.25rem;
+        padding: 0.875rem 1rem;
+        font-size: 16px; /* Prevents zoom on iOS */
+        padding-right: 2.5rem;
+        border-radius: 6px;
+        min-height: 44px;
+    }
+
+    .label {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
     }
 
     .player-list-container {
-        max-height: 200px;
+        max-height: 180px;
+        margin-top: 0.75rem;
     }
 
     .player-list li {
         padding: 0.75rem 0.875rem;
-        padding-left: 1.5rem;
-        font-size: 0.95rem;
+        padding-left: 1.75rem;
+        font-size: 0.9rem;
+        border-radius: 4px;
+    }
+
+    .player-list li::before {
+        left: 0.5rem;
+        font-size: 0.65rem;
     }
 
     .cards-container {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-        gap: 1rem;
-        padding: 0.75rem 0.25rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+        padding: 0.5rem;
+        max-width: 100%;
     }
 
     .card {
@@ -933,13 +989,22 @@ body::before {
 
     .card-front,
     .card-back {
-        padding: 1rem 0.75rem;
-        font-size: 0.85rem;
+        padding: 0.875rem 0.625rem;
+        font-size: 0.8rem;
         min-height: 44px;
+        border-radius: 6px;
     }
 
     .card-front {
-        font-size: 1rem;
+        font-size: 0.95rem;
+        line-height: 1.3;
+    }
+
+    .card-back {
+        font-size: 0.75rem;
+        line-height: 1.4;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 
     .scroll-top {
@@ -948,12 +1013,36 @@ body::before {
     }
 }
 
-/* Extra Small Devices */
+/* Extra Small Devices (Small Phones) */
 @media (max-width: 360px) {
+    .app-container {
+        padding: 0.4rem;
+    }
+
+    .header-content {
+        padding: 1rem 0.5rem;
+    }
+
+    .title {
+        font-size: clamp(1rem, 9vw, 1.5rem);
+    }
+
+    .subtitle {
+        font-size: 0.8rem;
+    }
+
+    .scroll-panel {
+        padding: 1rem 0.75rem;
+    }
+
+    .section-title {
+        font-size: 1.1rem;
+    }
+
     .cards-container {
-        grid-template-columns: 1fr 1fr;
-        gap: 0.75rem;
-        padding: 0.5rem 0.25rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+        padding: 0.4rem;
     }
 
     .card {
@@ -967,12 +1056,27 @@ body::before {
 
     .card-front,
     .card-back {
-        padding: 0.875rem 0.5rem;
-        font-size: 0.8rem;
+        padding: 0.75rem 0.5rem;
+        font-size: 0.75rem;
     }
 
     .card-front {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
+    }
+
+    .card-back {
+        font-size: 0.7rem;
+    }
+
+    .btn {
+        padding: 0.75rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .modern-input,
+    .modern-select {
+        padding: 0.75rem 0.875rem;
+        font-size: 16px;
     }
 }
 
