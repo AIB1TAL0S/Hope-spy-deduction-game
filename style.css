@@ -493,9 +493,9 @@ body::before {
 .card {
     width: 100%;
     aspect-ratio: 2 / 3;
-    perspective: 1200px;
     cursor: pointer;
     animation: cardAppear 0.6s ease-out backwards;
+    position: relative;
 }
 
 .card:nth-child(1) { animation-delay: 0.1s; }
@@ -510,13 +510,6 @@ body::before {
     width: 100%;
     height: 100%;
     text-align: center;
-    transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
-    transform-style: preserve-3d;
-    transform-origin: center center;
-}
-
-.card.flipped .card-inner {
-    transform: rotateY(180deg);
 }
 
 .card-front, .card-back {
@@ -524,15 +517,30 @@ body::before {
     width: 100%;
     height: 100%;
     border-radius: var(--border-radius);
-    backface-visibility: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 1.5rem;
     box-shadow: var(--shadow-ancient);
-    transition: var(--transition);
+    transition: opacity 0.3s ease;
     border: 2px solid var(--parchment-darker);
+}
+
+.card-front {
+    opacity: 1;
+}
+
+.card-back {
+    opacity: 0;
+}
+
+.card.flipped .card-front {
+    opacity: 0;
+}
+
+.card.flipped .card-back {
+    opacity: 1;
 }
 
 .card:hover .card-front,
@@ -587,7 +595,6 @@ body::before {
     background: 
         linear-gradient(to bottom, var(--parchment-light) 0%, var(--parchment-base) 50%, var(--parchment-dark) 100%);
     color: var(--ink-dark);
-    transform: rotateY(180deg);
     border: 2px solid var(--parchment-darker);
     font-size: 0.95rem;
     line-height: 1.7;
@@ -687,11 +694,11 @@ body::before {
 @keyframes cardAppear {
     from {
         opacity: 0;
-        transform: scale(0.7) rotateY(-30deg);
+        transform: scale(0.9);
     }
     to {
         opacity: 1;
-        transform: scale(1) rotateY(0);
+        transform: scale(1);
     }
 }
 
